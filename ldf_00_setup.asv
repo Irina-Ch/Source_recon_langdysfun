@@ -91,11 +91,11 @@ projpath.elec_aligned = fullfile(projpath.base, sprintf('%s_elec_aligned', id));
 % addpath(toolboxes.fieldtrip)
 
 %git.branch = 'master';
-git.branch = 'ctxtverb';
+git.branch = 'master';
 git.head = ['ref:refs/heads/', git.branch];
 
 try
-    ft_defaults %if you already have fieldtrip on path, it works
+    ft_defaults
 catch
     warning('Fieldtrip is not on your path yet, adding it.');
     read_git = fscanf(fopen(fullfile(toolboxes.fieldtrip, '.git/HEAD'), 'r'), '%s');

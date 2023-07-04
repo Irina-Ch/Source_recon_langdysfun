@@ -30,7 +30,7 @@ bias_field_corr = 0;
 % default strip the skull or do other processing which will pose problems
 % for this pipeline.
 
-% Example of converting to nifti:
+%% Example of converting to nifti:
 % mri_tmp = ft_read_mri(projpath.mri);
 % ft_write_mri('~/MEG/test_mri/001-T1.nii', mri_tmp, 'dataformat', 'nifti')
 
@@ -97,7 +97,7 @@ end
 % edges of the voxels have the same length in all directions.
 
 % This also saves the MRI, which is crucial for further processing.
-mri_resl = ft_volumereslice([], mri);
+mri_resl = ft_volumereslice([], mri_in); % changed to 'mri_in' from 'mri'
 save(projpath.mri_resl, 'mri_resl'); 
 
 
