@@ -27,7 +27,9 @@ ax_scan.Interactions = dataTipInteraction;
 disableDefaultInteractivity(ax_scan);  % turn off irritating data tips
 axis equal
 view([-90, -25])  
-lightangle(-125, -50);
+%lightangle(-125, -50); % ORIGINAL; change here per pp
+%lightangle(0, -170); % sub022
+lightangle(0, -190); % sub002, sub005; sub013; sub014; sub024; sub025
 
 % plot MRI
 ax_mri = subplot(1,2,2);

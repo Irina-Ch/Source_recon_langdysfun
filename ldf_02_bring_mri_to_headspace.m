@@ -20,7 +20,12 @@
 % recommended. Bias field correction should be chosen in case it is
 % necessary (i.e. if the segmentation failed).
 
-mri_path = projpath.mri_resl;
+if str2num(id) == 2 | str2num(id) == 17 | str2num(id) == 6 | str2num(id) == 7 | str2num(id) == 8 | ...
+        str2num(id) == 9 | str2num(id) == 11 | str2num(id) == 12 % for problematic segmentation pps
+    mri_path = fullfile(projpath.base, mri_name); % to use non-resliced mri 
+else
+    mri_path = projpath.mri_resl;
+end
 
 % find and load the right MRI
 if strcmp(mri_path, projpath.mri)
@@ -44,7 +49,7 @@ end
 % inverse model!
 
 % Follow the instructions that get printed to the command window and mark:
-% Nasion, LPA, RPA, and a z-point.
+% Nasion - n , LPA - l, RPA - r, and a z-point - z.
 % You do not have to be *overly* precise here - this is NOT THE
 % COREGISTRATION!
 % We just bring the MRI into CTF space which will help us with segmentation

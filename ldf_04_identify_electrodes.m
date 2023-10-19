@@ -60,7 +60,7 @@ ft_plot_mesh(head_surface);
 
 % This function to get the electrode order is shared in the subfolder
 % /functions
-elec_order = get_electrode_order('acticap_dcc');
+elec_order = get_electrode_order('acticap_dcc'); %NB! I also have lpa,nas, rpa marked
 
 % Important: if FieldTrip asks you if you want to change the anatomical
 % labels for the axes, answer NO (n).
@@ -73,3 +73,4 @@ elec = ft_electrodeplacement(cfg, head_surface);
 %% Save File
 
 save(projpath.elec, 'elec');
+

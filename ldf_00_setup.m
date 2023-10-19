@@ -25,10 +25,11 @@ toolboxes.nutmeg = '/home/langdysfun/irichu/Documents/toolboxes/nutmeg-master'; 
 % also add the path to the subfolder "functions" of this script folder.
 % This assumes you are in the folder with the scripts - otherwise just add
 % the full path to the subfolder below!
+cd /project/2422120.01/scripts/source_analysis/Source_recon_langdysfun;
 addpath('./functions')
 
 %% Paths for data 
-id = '001';
+id = '001'; % 001 to 028
 
 projpath = [];  % initialize
 
@@ -38,13 +39,12 @@ projpath = [];  % initialize
 % tilde shortcut for doing so (i.e. '~/MEG/test_mri' below), but give the
 % full path here
 projpath.base = ['/project/2422120.01/BIDS/sub-', id, '/anat']; % for nifti
+projpath.dicoms = ['/project/2422120.01/BIDS/sub-', id, '/anat/dicom_s', id]; %for dicoms
 
 % second, the name of the MRI and a participant ID, also change:
 % This should be the path to a nifti file - if your data is DICOM or else,
 % check ldf_01_preprocess_mri.m for some info on how to convert.
 mri_name = ['sub-', id, '_T1w.nii']; %sub-001_T1w.nii
-
-
 
 % add here the path to your electrodes file - the one you get out of
 % identifying the electrodes in the structural scan. You can also follow
@@ -60,6 +60,8 @@ projpath.elec = fullfile(projpath.base, ['elec_positions/sub-', id, '_elec_pos.m
 
 % generate full path to MRI out of the information
 projpath.mri = fullfile(projpath.base, mri_name);  % full path to MRI
+%projpath.mri = fullfile(projpath.base, 'sub-012_T1_BFcorrectedANT.nii') %Aug 6, 2023: trying to use BF cor in ANT 
+
 
 % We generate the other MRI file names, don't change this, as it partly
 % relies on how SPM saves the data
